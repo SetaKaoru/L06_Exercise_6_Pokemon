@@ -4,13 +4,13 @@ import {TextInput, View, Text, Button, Alert} from "react-native";
 
 
 const Edit = ({navigation, route}) => {
-    const [letter, setLetter] = useState(route.params.key);
+    const [name, setName] = useState(route.params.key);
 
     return (
         <View style={{padding: 10}}>
             <View style={{padding: 10}}>
-                <Text style={{fontWeight: 'bold'}}>Letter</Text>
-                <TextInput value={letter} style={{borderWidth: 1}} onChangeText={(text) => setLetter(text)}/>
+                <Text style={{fontWeight: 'bold'}}>Name</Text>
+                <TextInput value={name} style={{borderWidth: 1,backgroundColor: 'lavender'}} onChangeText={(text) => setName(text)}/>
             </View>
 
             <View style={{padding: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -18,10 +18,10 @@ const Edit = ({navigation, route}) => {
                     <Button title="SAVE"
                             onPress={() => {
                                 let indexNum = 1;
-                                if (route.params.type == "Vowels") {
+                                if (route.params.type == "Grass") {
                                     indexNum = 0;
                                 }
-                                datasource[indexNum].data[route.params.index].key=letter;
+                                datasource[indexNum].data[route.params.index].key=name;
                                 navigation.navigate("Home");
                             }}
                     />
@@ -30,7 +30,7 @@ const Edit = ({navigation, route}) => {
                     <Button title="DELETE"
                             onPress={() => {
                                 let indexNum = 1;
-                                if (route.params.type == "Vowels") {
+                                if (route.params.type == "Grass") {
                                     indexNum = 0;
                                 }
                                 Alert.alert("Are our sure?", '',
